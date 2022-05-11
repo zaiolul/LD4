@@ -1,0 +1,5 @@
+﻿Miestas2
+Vardenis Antrasis
+Pav4;Penktoji g. 5;2021-10-10;Autorius2;Paminklas2
+Pav5;Septintoji g. 7;2022-05-05;Autorius1;Paminklas3
+Pav6;Trečioji g 3;2021-01-01;Muziejus2;1111101;true;11

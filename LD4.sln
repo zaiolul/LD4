@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD4", "LD4\LD4.csproj", "{87141345-A1D8-45B5-B4F4-A197B28DC5B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD4Tests", "LD4Tests\LD4Tests.csproj", "{D989BA73-6110-45B2-A7E3-69DE68C55DDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87141345-A1D8-45B5-B4F4-A197B28DC5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87141345-A1D8-45B5-B4F4-A197B28DC5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87141345-A1D8-45B5-B4F4-A197B28DC5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87141345-A1D8-45B5-B4F4-A197B28DC5B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D989BA73-6110-45B2-A7E3-69DE68C55DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D989BA73-6110-45B2-A7E3-69DE68C55DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D989BA73-6110-45B2-A7E3-69DE68C55DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D989BA73-6110-45B2-A7E3-69DE68C55DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {769436B5-7978-40E9-8FCA-A5A71D12F69C}
+	EndGlobalSection
+EndGlobal

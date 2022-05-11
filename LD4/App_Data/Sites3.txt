@@ -1,0 +1,4 @@
+﻿Miestas3
+Vardenis Trečiasis
+Pav7;Dešimtoji g. 10;1999-01-01;Autorius3;Paminklas3
+Pav7;Dešimtoji g. 10;2000-10-10;Muziejus3;0011100;false;50

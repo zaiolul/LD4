@@ -1,0 +1,30 @@
+﻿Pradiniai duomenys:
+| Miestas    | Vadovas              | Pavadinimas     | Gatvė                | Data       | Aut./Tip.  |  D.D./Pav. | Gidas | Kaina |
+| Miestas1   | Vardenis Pirmasis    | Pav1            | Pirmoji g. 1         | 2000-01-01 | Muziejus1  | 1110110    | True  |    30 |
+| Miestas1   | Vardenis Pirmasis    | Pav2            | Antroji g. 2         | 2021-10-10 | Muziejus2  | 1111101    | False |    15 |
+| Miestas1   | Vardenis Pirmasis    | Pav3            | Antroji g. 2         | 2021-03-03 | Autorius2  | Paminklas1 |
+| Miestas2   | Vardenis Antrasis    | Pav4            | Penktoji g. 5        | 2021-10-10 | Autorius2  | Paminklas2 |
+| Miestas2   | Vardenis Antrasis    | Pav5            | Septintoji g. 7      | 2022-05-05 | Autorius1  | Paminklas3 |
+| Miestas2   | Vardenis Antrasis    | Pav6            | Trečioji g 3         | 2021-01-01 | Muziejus2  | 1111101    | True  |    11 |
+| Miestas3   | Vardenis Trečiasis   | Pav7            | Dešimtoji g. 10      | 1999-01-01 | Autorius3  | Paminklas3 |
+| Miestas3   | Vardenis Trečiasis   | Pav7            | Dešimtoji g. 10      | 2000-10-10 | Muziejus3  | 0011100    | False |    50 |
+
+Dirba savaitgaliais:
+| Miestas    | Vadovas              | Pavadinimas     | Gatvė                | Data       | Tipas      |  D.D.      | Gidas | Kaina |
+| Miestas1   | Vardenis Pirmasis    | Pav1            | Pirmoji g. 1         | 2000-01-01 | Muziejus1  | 1110110    | True  |    30 |
+| Miestas1   | Vardenis Pirmasis    | Pav2            | Antroji g. 2         | 2021-10-10 | Muziejus2  | 1111101    | False |    15 |
+| Miestas2   | Vardenis Antrasis    | Pav6            | Trečioji g 3         | 2021-01-01 | Muziejus2  | 1111101    | True  |    11 |
+
+Atrinkta pagal autorių:
+| Miestas    | Vadovas              | Pavadinimas     | Gatvė                | Data       | Autorius   | P. Pav     |
+| Miestas1   | Vardenis Pirmasis    | Pav1            | Pirmoji g. 1         | 2000-01-01 | Muziejus1  | 1110110    | True  |    30 |
+| Miestas1   | Vardenis Pirmasis    | Pav2            | Antroji g. 2         | 2021-10-10 | Muziejus2  | 1111101    | False |    15 |
+| Miestas2   | Vardenis Antrasis    | Pav6            | Trečioji g 3         | 2021-01-01 | Muziejus2  | 1111101    | True  |    11 |
+
+Naujausios vietovės:
+| Miestas    | Vadovas              | Pavadinimas     | Gatvė                | Data       | Aut./Tip.  |  D.D./Pav. | Gidas | Kaina |
+| Miestas2   | Vardenis Antrasis    | Pav6            | Trečioji g 3         | 2021-01-01 | Muziejus2  | 1111101    | True  |    11 |
+| Miestas1   | Vardenis Pirmasis    | Pav2            | Antroji g. 2         | 2021-10-10 | Muziejus2  | 1111101    | False |    15 |
+| Miestas2   | Vardenis Antrasis    | Pav5            | Septintoji g. 7      | 2022-05-05 | Autorius1  | Paminklas3 |
+| Miestas2   | Vardenis Antrasis    | Pav4            | Penktoji g. 5        | 2021-10-10 | Autorius2  | Paminklas2 |
+

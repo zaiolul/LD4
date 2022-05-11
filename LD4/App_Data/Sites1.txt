@@ -1,0 +1,5 @@
+﻿Miestas1
+Vardenis Pirmasis
+Pav1;Pirmoji g. 1;2000-01-01;Muziejus1;1110110;true;30
+Pav2;Antroji g. 2;2021-10-10;Muziejus2;1111101;false;15
+Pav3;Antroji g. 2;2021-03-03;Autorius2;Paminklas1
