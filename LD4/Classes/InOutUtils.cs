@@ -12,16 +12,19 @@ namespace LD4
         /// <param name="fileNames"></param>
         /// <returns>List of sites</returns>
         /// <exception cref="Exception"></exception>
-        public static List<Site> ReadSites(string[] fileNames)
+        public static List<Tuple<string, List<Site>>> ReadSites(string[] fileNames)
         {
-            List<Site> sites = new List<Site>();
+            List<Tuple<string, List<Site>>> data = new List<Tuple<string, List<Site>>>();
 
+            
             foreach(string file in fileNames)
             {
+                List<Site> sites = new List<Site>();
                 string[] allDirs = file.Split('\\');
+                string fileName = allDirs[allDirs.Length - 1];
                 if (File.ReadAllText(file).Length == 0)
                 {
-                    throw new Exception(String.Format("{0} failas yra tuščias.", allDirs[allDirs.Length - 1]));
+                    throw new Exception(String.Format("{0} failas yra tuščias.", fileName));
                 }
                 using(StreamReader reader = new StreamReader(file, System.Text.Encoding.UTF8))
                 {
@@ -36,7 +39,7 @@ namespace LD4
                         if(parts.Length != 7 && parts.Length != 5)
                         {
                             
-                            throw new Exception(String.Format("Negalimas duomenų laikų skaičius {0} faile, eilutė: \n {1}",allDirs[allDirs.Length - 1], line));
+                            throw new Exception(String.Format("Negalimas duomenų laikų skaičius {0} faile, eilutė: \n {1}", fileName, line));
                         }
                         else if(parts.Length == 7)
                         {
@@ -64,9 +67,12 @@ namespace LD4
                         }
                     }
                 }
+                data.Add(new Tuple<string,List<Site>>(fileName, sites));
             }
-            return sites;
+            return data;
         }
+        
+        
         /// <summary>
         /// Prints sites to .csv file
         /// </summary>
@@ -81,6 +87,20 @@ namespace LD4
                 {
                     writer.WriteLine(entry.GetCsvLine());
                 }
+            }
+        }
+        /// <summary>
+        /// Prints data from each data file to a .txt file in table format
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="fileName"></param>
+        /// <param name="header"></param>
+        /// <param name="format"></param>
+        public static void PrintToTxtFile(List<Tuple<string, List<Site>>> data, string fileName, string header, string format)
+        {
+            foreach(var entry in data)
+            {
+                PrintToTxtFile(entry.Item2, fileName, entry.Item1 + " " + header, format);
             }
         }
         /// <summary>

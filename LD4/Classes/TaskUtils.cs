@@ -6,6 +6,23 @@ namespace LD4
     public static class TaskUtils
     {
         /// <summary>
+        /// Merges data from each file into one list
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>Merged file data list</returns>
+        public static List<Site> GetMergedSites(List<Tuple<string, List<Site>>> data)
+        {
+            List<Site> sites = new List<Site>();
+            foreach(var entry in data)
+            {
+                foreach(Site site in entry.Item2)
+                {
+                    sites.Add(site);
+                }
+            }
+            return sites;
+        }
+        /// <summary>
         /// Gets the number of sites which have a guide
         /// </summary>
         /// <param name="sites"></param>
