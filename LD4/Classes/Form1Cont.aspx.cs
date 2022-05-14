@@ -1,11 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace LD4
 {
     public partial class Form1 : System.Web.UI.Page
     {
+        /// <summary>
+        /// Shows data on the page by creating a table for each file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <param name="excludeCity"></param>
+        /// <param name="headers"></param>
+        protected void ShowData<T>(List<Tuple<string, List<T>>> data, bool excludeCity, params string[] headers)
+        {
+            foreach(var entry in data)
+            {
+                Table table = new Table();
+                Label label = new Label();
+                divData.Controls.Add(new LiteralControl("<br/>"));
+                label.Text = entry.Item1;
+                divData.Controls.Add(label);
+                divData.Controls.Add(table);
+                ShowData<T>(entry.Item2, table, false, headers);
+               
+            }
+        }
         /// <summary>
         /// Method to display a table of data on the page
         /// </summary>

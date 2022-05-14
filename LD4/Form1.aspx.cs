@@ -26,7 +26,8 @@ namespace LD4
                 File.Delete(resultsTxt);
             }
 
-            div2.Visible = false;
+            divData.Visible = false;
+            divResults.Visible = false;
             Label2.Visible = false;
             Label3.Visible = false;
            
@@ -38,24 +39,26 @@ namespace LD4
             {
                 try
                 {
-                    List<Site> sites = InOutUtils.ReadSites(Directory.GetFiles(Server.MapPath("App_Data"), "*.txt"));
+                    //List<Site> sites = InOutUtils.ReadSites(Directory.GetFiles(Server.MapPath("App_Data"), "*.txt"));
+                    List<Tuple<string, List<Site>>> sites = InOutUtils.ReadSites(Directory.GetFiles(Server.MapPath("App_Data"), "*.txt"));
+                    List<Site> sitesMerged = TaskUtils.GetMergedSites(sites);
 
-                    ShowData(sites, Table1, false, "Miestas", "Vadovas", "Pavadinimas", "Gatvė",
+                    ShowData(sites, false, "Miestas", "Vadovas", "Pavadinimas", "Gatvė",
                    "Data", "Autorius/Tipas", "Darbo D./Paminklo pav.", "Turi gidą", "Bilieto kaina");
 
-                    Label1.Text = "Lankytinų vietų, turinčių gidus, skaičius: " + TaskUtils.GetGuidesCount(sites);
+                    Label1.Text = "Lankytinų vietų, turinčių gidus, skaičius: " + TaskUtils.GetGuidesCount(sitesMerged);
 
 
-                    List<Site> visitableOnWeekend = TaskUtils.GetVisitableOnWeekend(sites);
+                    List<Site> visitableOnWeekend = TaskUtils.GetVisitableOnWeekend(sitesMerged);
                     ShowTypes(visitableOnWeekend, Table2);
 
-                    List<Site> filteredByAuthor = TaskUtils.GetStatuesByAuthor(sites, TextBox1.Text);
+                    List<Site> filteredByAuthor = TaskUtils.GetStatuesByAuthor(sitesMerged, TextBox1.Text);
                     InOutUtils.PrintToCsvFile(filteredByAuthor, results1, "Pavadinimas,Gatvė,Data,Autorius,Paminklo pav.");
                     ShowData(filteredByAuthor, Table3, true, "Pavadinimas", "Gatvė", "Data", "Autorius", "Paminklo pav.");
 
 
-                    List<Museum> newestMuseums = TaskUtils.GetNewestSites<Museum>(sites, 2);
-                    List<Statue> newestStatues = TaskUtils.GetNewestSites<Statue>(sites, 1);
+                    List<Museum> newestMuseums = TaskUtils.GetNewestSites<Museum>(sitesMerged, 2);
+                    List<Statue> newestStatues = TaskUtils.GetNewestSites<Statue>(sitesMerged, 1);
 
                     newestMuseums.Sort();
                     newestStatues.Sort();
@@ -69,19 +72,20 @@ namespace LD4
                        "Data", "Autorius/Tipas", "Darbo D./Paminklo pav.", "Turi gidą", "Bilieto kaina");
 
 
-                    InOutUtils.PrintToTxtFile(sites, resultsTxt, "Pradiniai duomenys:",
+                    InOutUtils.PrintToTxtFile(sites, resultsTxt, " failas:",
                         String.Format("| {0, -10} | {1, -20} | {2, -15} | {3,-20} | {4, -10} | {5,-10} | {6,-10} | {7,-5} | {8, -5} |",
                         "Miestas", "Vadovas", "Pavadinimas", "Gatvė", "Data", "Aut./Tip.", " D.D./Pav.", "Gidas", "Kaina"));
                     InOutUtils.PrintToTxtFile(visitableOnWeekend, resultsTxt, "Dirba savaitgaliais:",
                         String.Format("| {0, -10} | {1, -20} | {2, -15} | {3,-20} | {4, -10} | {5,-10} | {6,-10} | {7,-5} | {8, -5} |",
                         "Miestas", "Vadovas", "Pavadinimas", "Gatvė", "Data", "Tipas", " D.D.", "Gidas", "Kaina"));
-                    InOutUtils.PrintToTxtFile(visitableOnWeekend, resultsTxt, "Atrinkta pagal autorių:",
+                    InOutUtils.PrintToTxtFile(filteredByAuthor, resultsTxt, "Atrinkta pagal autorių:",
                         String.Format("| {0, -10} | {1, -20} | {2, -15} | {3,-20} | {4, -10} | {5,-10} | {6,-10} |",
                         "Miestas", "Vadovas", "Pavadinimas", "Gatvė", "Data", "Autorius", "P. Pav"));
                     InOutUtils.PrintToTxtFile(newestMerged, resultsTxt, "Naujausios vietovės:",
                         String.Format("| {0, -10} | {1, -20} | {2, -15} | {3,-20} | {4, -10} | {5,-10} | {6,-10} | {7,-5} | {8, -5} |",
                         "Miestas", "Vadovas", "Pavadinimas", "Gatvė", "Data", "Aut./Tip.", " D.D./Pav.", "Gidas", "Kaina"));
-                    div2.Visible = true;
+                    divData.Visible = true;
+                    divResults.Visible = true;
                 }
                 catch (Exception ex)
                 {

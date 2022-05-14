@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="div1">
+        <div id="divStart" runat="server">
             <asp:Label ID="Label3" runat="server" Text="Label" ForeColor="Red"></asp:Label>
             <br />
             Autorius:<br />
@@ -20,15 +20,13 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Vykdyti" />
             <br />
         </div>
-        <div id="div2" runat="server">
-            Pradiniai duomenys:<br />
-            <asp:Table ID="Table1" runat="server">
-            </asp:Table>
+        <div id="divData" runat="server">
+        </div>
+        <div id="divResults" runat="server">
             <br />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
-            <br />
-            Vietos, kurias galima lankyti savaitgaliais:<br />
+            <br />Vietos, kurias galima lankyti savaitgaliais:savaitgaliais:<br />
             <asp:Table ID="Table2" runat="server">
             </asp:Table>
             <br />
