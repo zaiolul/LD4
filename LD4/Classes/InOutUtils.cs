@@ -16,6 +16,10 @@ namespace LD4
         {
             List<Tuple<string, List<Site>>> data = new List<Tuple<string, List<Site>>>();
 
+            if(fileNames.Length == 0)
+            {
+                throw new Exception("Nerasta duomenų failų.");
+            }
             
             foreach(string file in fileNames)
             {

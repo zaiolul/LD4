@@ -11,28 +11,28 @@ namespace LD4
     /// </summary>
     public partial class Form1 : System.Web.UI.Page
     {
-        
+
+        private string dir;
         private string results1;
         private string results2;
         private string resultsTxt;
        
         protected void Page_Load(object sender, EventArgs e)
-        {
-            results1 = Server.MapPath("/App_Data/PaminklaiAutorius.csv");
-            results2 = Server.MapPath("/App_Data/Nauji.csv");
-            resultsTxt = Server.MapPath("/App_Data/Rez.txt");
-            if(File.Exists(resultsTxt))
+        {     
+            dir = Server.MapPath("App_Data");
+            results1 = dir + "/PaminklaiAutorius.csv";
+            results2 = dir + "/Nauji.csv";
+            resultsTxt = dir + "/Rez.txt";
+            if (File.Exists(resultsTxt))
             {
                 File.Delete(resultsTxt);
             }
-
             divData.Visible = false;
             divResults.Visible = false;
             Label2.Visible = false;
-            Label3.Visible = false;
+            Label3.Visible = false;   
            
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (IsText(TextBox1, Label2))
@@ -40,7 +40,7 @@ namespace LD4
                 try
                 {
                     //List<Site> sites = InOutUtils.ReadSites(Directory.GetFiles(Server.MapPath("App_Data"), "*.txt"));
-                    List<Tuple<string, List<Site>>> sites = InOutUtils.ReadSites(Directory.GetFiles(Server.MapPath("App_Data"), "*.txt"));
+                    List<Tuple<string, List<Site>>> sites = InOutUtils.ReadSites(Directory.GetFiles(dir, "Sites*.txt"));
                     List<Site> sitesMerged = TaskUtils.GetMergedSites(sites);
 
                     ShowData(sites, false, "Miestas", "Vadovas", "Pavadinimas", "Gatvė",
