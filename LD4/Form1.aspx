@@ -26,7 +26,7 @@
             <br />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
-            <br />Vietos, kurias galima lankyti savaitgaliais:savaitgaliais:<br />
+            <br />Vietos, kurias galima lankyti savaitgaliais:<br />
             <asp:Table ID="Table2" runat="server">
             </asp:Table>
             <br />
